@@ -9,9 +9,12 @@ public class Player : MonoBehaviour
     Animator anim;
     SpriteRenderer sr;
     public LayerMask groundLayer;
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("You've been stabbed");
+    }
     void Start()
     {
-
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         print("Start");
@@ -25,14 +28,14 @@ public class Player : MonoBehaviour
         anim.SetBool("Jump", false);
         if (Input.GetKey(KeyCode.LeftArrow) == true)
         {
-            print("User pressed left"); transform.position = new Vector2(transform.position.x - (1 * Time.deltaTime), transform.position.y);
+            print("User pressed left"); transform.position = new Vector2(transform.position.x - (2 * Time.deltaTime), transform.position.y);
             anim.SetBool("Walk", true);
             sr.flipX = true;
         }
 
         if (Input.GetKey(KeyCode.RightArrow) == true)
         {
-            print("User pressed right"); transform.position = new Vector2(transform.position.x + (1 * Time.deltaTime), transform.position.y);
+            print("User pressed right"); transform.position = new Vector2(transform.position.x + (2 * Time.deltaTime), transform.position.y);
             anim.SetBool("Walk", true);
             sr.flipX = false; 
         }
@@ -46,5 +49,6 @@ public class Player : MonoBehaviour
         {
             anim.SetTrigger("Attack");
         }
+        Debug.Log(transform.position);
     }
 }

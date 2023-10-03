@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Terraria_Sprite_0: -7536056050499049137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

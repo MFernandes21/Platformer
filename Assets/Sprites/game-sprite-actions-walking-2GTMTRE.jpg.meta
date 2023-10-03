@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      game-sprite-actions-walking-2GTMTRE_0: 6948092804064883740
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

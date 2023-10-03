@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Animating-A-Sprite_0: -4419951544082015276
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
