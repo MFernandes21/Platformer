@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
         Debug.Log("You've been stabbed");
     }
     Helper_Script helper;
-    Helper_Script groundCheck;
 
     void Start()
     {
@@ -23,7 +22,6 @@ public class Player : MonoBehaviour
         print("Start");
         sr = GetComponent<SpriteRenderer>();
         helper = gameObject.AddComponent<Helper_Script>();
-        groundCheck = gameObject.AddComponent<Helper_Script>();
     }
 
     // Update is called once per frame
@@ -44,16 +42,27 @@ public class Player : MonoBehaviour
             anim.SetBool("Walk", true);
             helper.FlipObject(false);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && groundCheck == true)
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Jump", true);
-            rb.AddForce(new Vector3(0, 0.05f, 0), (ForceMode2D)ForceMode.Impulse);
-        }
+
+        DoJump();
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             anim.SetTrigger("Attack");
         }
         Debug.Log(transform.position);
     }
+
+
+    void DoJump()
+    {
+        bool groundCheck = helper.DoRayCollisionCheck();
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) && groundCheck == true)
+        {
+            anim.SetBool("Walk", false);
+            anim.SetBool("Jump", true);
+            rb.AddForce(new Vector3(0, 10f, 0), ForceMode2D.Impulse);
+        }
+    }
+
 }

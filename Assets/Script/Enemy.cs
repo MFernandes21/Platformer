@@ -31,8 +31,6 @@ public class Enemy : MonoBehaviour
         if(target)
         {
             Vector2 direction = (target.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
             moveDirection = direction;
         }
         relativePoint = transform.InverseTransformPoint(player.position);

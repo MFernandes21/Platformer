@@ -433,7 +433,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: f374107ba66790641b6b7c9d0d9a49d3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.13457283, g: 1, b: 0.042452812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 2066008522}
   - component: {fileID: 2066008521}
   - component: {fileID: 2066008520}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
