@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
 
     void DoJump()
     {
-        bool groundCheck = helper.DoRayCollisionCheck();
+        bool groundCheck = helper.DoRayCollisionCheck(1f, 0f);
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && groundCheck == true)
         {

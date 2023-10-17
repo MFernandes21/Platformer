@@ -19,16 +19,17 @@ public class Helper_Script : MonoBehaviour
             sr.flipX = false;
         }
     }
-    public bool DoRayCollisionCheck()
+    public bool DoRayCollisionCheck(float xoffs, float yoffs)
     {
         float rayLength = 0.5f;
-
         bool groundCheck;
+
+        Vector3 offset = new Vector3(xoffs, yoffs, 0);
 
         RaycastHit2D hit;
 
 
-        hit = Physics2D.Raycast(transform.position, -Vector2.up, rayLength, groundLayerMask);
+        hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, rayLength, groundLayerMask);
 
         Color hitColor = Color.white;
 
@@ -44,34 +45,33 @@ public class Helper_Script : MonoBehaviour
             groundCheck = false;
         }
 
-        Debug.DrawRay(transform.position, -Vector2.up * rayLength, hitColor);
+        Debug.DrawRay(transform.position + offset, -Vector2.up * rayLength, hitColor);
 
         return groundCheck;
 
 
     }
-    public void Patrol()
-    { 
+    ////public void Patrol()
+    //{
+    //    Transform groundDetection;
 
-        Transform groundDetection;
+    //    transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+    //    RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
+    //    if(groundInfo.collider == false)
+    //    {
+    //        if(movingRight == true)
+    //        {
+    //            transform.eulerAngles = new Vector3(0, -180, 0);
+    //            movingRight = false;
+    //        }
+    //        else
+    //        {
+    //            transform.eulerAngles = new Vector3(0, 0, 0);
+    //            movingRight = true;
+    //        }
+    //    }
 
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-        if(groundInfo.collider == false)
-        {
-            if(movingRight == true)
-            {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = false;
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = true;
-            }
-        }
-    }
     void Start()
     {
         groundLayerMask = LayerMask.GetMask("Ground");    
